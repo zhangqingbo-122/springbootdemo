@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--映射文件-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:设置一个名称空间（当做是java中的包名）-->
+<mapper namespace="com.crud.springboot.user.dao.UserDao">
+
+    <!--
+     //查询全部
+    List<UserEntity> getAll(Map map);
+    -->
+<select id="getAll" resultType="com.crud.springboot.user.entity.UserEntity" parameterType="map">
+    select * from user
+</select>
+
+    <!--
+        //删除
+        void dellById(Integer id);
+    -->
+    <delete id="dellById" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+
+    <!--
+        //保存用户
+        void save(UserEntity userEntity);
+    -->
+    <insert id="save" parameterType="com.crud.springboot.user.entity.UserEntity">
+            INSERT INTO `demo`.`user` (
+                `id`,
+                `username`,
+                `password`,
+                `createtime`,
+                `status`
+            )
+            VALUES
+                (
+                    null ,
+                    #{username},
+                    #{password},
+                    #{createtime},
+                    #{status}
+                )
+
+    </insert>
+</mapper>
