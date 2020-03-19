@@ -36,6 +36,6 @@ public class UserController {
     @ResponseBody
     public String save(@RequestBody UserEntity userEntity) {
         userService.save(userEntity);
-        return "注册成功";
+        return "注册成功Ok";
     }
 }
